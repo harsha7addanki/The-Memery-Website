@@ -28,18 +28,10 @@ class MemeStream extends  Component<{},StreamProps>{
             <div key={i}>
                 <br></br>
                 <h1 style={{ }}>{d.name}</h1><br/>
-                <div style={{
-                        width: 150,
-                        height: 300,
-                        position: "relative",
-                    }}>
-                    <Image 
+                    <img 
                         src={d.uri} 
                         alt={d.name}
-                        layout="fill"
-                        objectFit="contain"
                     />
-                </div>
                 <hr/>
                 <br></br>
             </div>
