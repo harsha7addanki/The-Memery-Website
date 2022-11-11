@@ -1,11 +1,13 @@
 import {getFirestore, getDocs, collection} from 'firebase/firestore'
-import initFirebase from '../../../../firebase/initFirebase'
+import initFirebase from '@firebase-util/initFirebase'
+import {getAuth} from 'firebase/auth'
 import {Component} from 'react'
-import {Image} from 'next/image'
+import Image from 'next/image'
+import StreamProps from '@lib/StreamProps'
 
-class MemeStream extends  Component{
-    constructor(){
-        super()
+class MemeStream extends  Component<{},StreamProps>{
+    constructor(props){
+        super(props)
         this.state = {
             memes: []
         }
@@ -25,8 +27,19 @@ class MemeStream extends  Component{
         const mapData = this.state.memes.map((d,i) => 
             <div key={i}>
                 <br></br>
-                <h1>{d.name}</h1><br/>
-                <img src={d.uri} /><br/>
+                <h1 style={{ }}>{d.name}</h1><br/>
+                <div style={{
+                        width: 150,
+                        height: 300,
+                        position: "relative",
+                    }}>
+                    <Image 
+                        src={d.uri} 
+                        alt={d.name}
+                        layout="fill"
+                        objectFit="contain"
+                    />
+                </div>
                 <hr/>
                 <br></br>
             </div>
@@ -56,7 +69,7 @@ class MemeStream extends  Component{
         // );
     }
     async componentDidMount(){
-        initFirebase()
+        initFirebase
         const db = getFirestore()
         const lmemes = await getDocs(collection(db, "teamimg"));
         console.log("componentDidMount -> Loading from db ");
