@@ -39,7 +39,23 @@ class MemeStream extends  Component<{},StreamProps>{
 
         return (
             <div>
-                {mapData}
+                {mapData.length > 0?
+                    mapData:
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '100vh',
+                    }}>
+                        <div
+                        className="spinner-border text-success"
+                        style={{ width: "3rem", height: "3rem" }}
+                        role="status"
+                        >
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                }
             </div>
         );
 
