@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import {Script} from 'next/script'
+import Script from 'next/script'
 import Head from 'next/head'
 import React, { useEffect } from "react";
 import { Workbox } from "workbox-window";
