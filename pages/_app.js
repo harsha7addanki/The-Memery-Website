@@ -3,6 +3,7 @@ import Script from 'next/script'
 import Head from 'next/head'
 import React, { useEffect } from "react";
 import { Workbox } from "workbox-window";
+import PWAInstallerPrompt from 'react-pwa-installer-prompt'
 
 function MyApp({ Component, pageProps }) {
 
@@ -39,6 +40,7 @@ const wb = new Workbox("sw.js", { scope: "/" });
         <link rel="icon" href="/favicon.ico" />
       </Head>  
     <Component {...pageProps} />
+
     </>
     );
 }
